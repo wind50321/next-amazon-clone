@@ -1,22 +1,14 @@
-import Head from 'next/head';
 import axios from 'axios';
 
-import Header from '@/components/Header';
-import Banner from '@/components/Banner';
-import ProductFeed from '@/components/ProductFeed';
+import Banner from '@/components/product/Banner';
+import ProductFeed from '@/components/product/ProductFeed';
 
 export default function Home({ products }) {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <Head>
-        <title>Amazon Clone</title>
-      </Head>
-      <Header />
-      <main className="max-w-screen-2xl mx-auto">
-        <Banner />
-        <ProductFeed products={products} />
-      </main>
-    </div>
+    <>
+      <Banner />
+      <ProductFeed products={products} />
+    </>
   );
 }
 
