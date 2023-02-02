@@ -20,8 +20,8 @@ export default function success() {
             </h1>
           </div>
           <p>
-            Thank you for shopping with us. We'll send a confirmation once your
-            item has shipped. If you would like to check the status of your
+            Thank you for shopping with us. We&#39;ll send a confirmation once
+            your item has shipped. If you would like to check the status of your
             order(s), please press the link below.
           </p>
           <div className="mt-8 text-center">
