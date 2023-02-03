@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import Link from 'next/link';
 import Image from 'next/image';
 import { StarIcon } from '@heroicons/react/24/solid';
 
@@ -40,13 +41,15 @@ export default function Product({
         {category}
       </p>
 
-      <Image
-        className="aspect-square object-contain mx-auto"
-        width={200}
-        height={200}
-        src={image}
-        alt="product"
-      />
+      <Link href={`/product/${id}`}>
+        <Image
+          className="aspect-square object-contain mx-auto"
+          width={200}
+          height={200}
+          src={image}
+          alt="product"
+        />
+      </Link>
 
       <h4 className="my-3">{title}</h4>
 

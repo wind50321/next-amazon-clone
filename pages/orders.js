@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useSession } from 'next-auth/react';
 
 import Order from '@/components/product/Order';
@@ -6,26 +7,31 @@ export default function Orders({ orders }) {
   const { data: session } = useSession();
 
   return (
-    <div className="p-10 bg-white">
-      <h1 className="text-3xl pb-5 border-b">Your Orders</h1>
-      <h2 className="my-4">
-        {session
-          ? `${orders.length} Order(s)`
-          : 'Please sign in to see your orders'}
-      </h2>
-      <div className="space-y-4">
-        {orders?.map(({ id, amount, amountShipping, items, timestamp }) => (
-          <Order
-            key={id}
-            id={id}
-            amount={amount}
-            amountShipping={amountShipping}
-            items={items}
-            timestamp={timestamp}
-          />
-        ))}
+    <>
+      <Head>
+        <title>Orders</title>
+      </Head>
+      <div className="p-10 bg-white">
+        <h1 className="text-3xl pb-5 border-b">Your Orders</h1>
+        <h2 className="my-4">
+          {session
+            ? `${orders.length} Order(s)`
+            : 'Please sign in to see your orders'}
+        </h2>
+        <div className="space-y-4">
+          {orders?.map(({ id, amount, amountShipping, items, timestamp }) => (
+            <Order
+              key={id}
+              id={id}
+              amount={amount}
+              amountShipping={amountShipping}
+              items={items}
+              timestamp={timestamp}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
